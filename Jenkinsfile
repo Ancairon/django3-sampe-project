@@ -30,8 +30,8 @@ pipeline {
                 '''
 
                 sh '''
-                    mkdir -p ~/workspace/ansible-project/files/certs
-                    cd ~/workspace/ansible-project/files/certs
+                    mkdir -p ~/workspace/ansible-pipeline/files/certs
+                    cd ~/workspace/ansible-pipeline/files/certs
                     openssl req -x509 -newkey rsa:4096 -keyout server.key -out server.crt -days 365 --nodes -subj '/C=GR/O=myorganization/OU=it/CN=myorg.com'
                 '''
             }
@@ -43,7 +43,7 @@ pipeline {
                         pwd
                         echo $WORKSPACE
 
-                        ansible-playbook -i ~/workspace/ansible-project/hosts.yml -l database ~/workspace/ansible-project/playbooks/postgres.yml
+                        ansible-playbook -i ~/workspace/ansible-pipeline/hosts.yml -l database ~/workspace/ansible-pipeline/playbooks/postgres.yml
                         '''
     //         }
             }
