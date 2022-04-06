@@ -48,16 +48,16 @@ pipeline {
     //         }
             }
         }
-        // stage('deploym to vm 1') {
-        //     steps{
-        //         sshagent (credentials: ['ssh-deployment-1']) {
-        //             sh '''
-        //                 ansible-playbook -i ~/workspace/ansible-project/hosts.yml -l deploymentservers ~/workspace/ansible-project/playbooks/django-project-install.yml
-        //             '''
-        //         }
+        stage('deploym to vm 1') {
+            steps{
+                sshagent (credentials: ['github']) {
+                    sh '''
+                        ansible-playbook -i ~/workspace/ansible-project/hosts.yml -l deploymentservers ~/workspace/ansible-project/playbooks/django-project-install.yml
+                    '''
+                }
 
-        //     }
+            }
 
-        // }
+        }
     }
 }
