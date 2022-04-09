@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/Ancairon/django3-sampe-project'
+                git branch: 'main', url: 'https://github.com/Ancairon/django3-sampe-project.git'
 
                 
             }
